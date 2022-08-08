@@ -1,0 +1,20 @@
+{
+  "name": "testing-hedera",
+  "version": "1.0.0",
+  "description": "Testing Hedera integration into XP.Network NFT bridge",
+  "main": "index.js",
+  "author": "Dima Brook",
+  "license": "MIT",
+  "scripts": {
+    "hedera_bsc": "tsc && node ./dist/hedera_bsc.js",
+    "bsc_hedera": "tsc && node ./dist/bsc_hedera.js"
+  },
+  "dependencies": {
+    "@elrondnetwork/erdjs": "^11.0.0",
+    "@taquito/taquito": "^13.0.1",
+    "@temple-wallet/dapp": "^7.0.0",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.6.9",
+    "xp.network": "git+https://github.com/xp-network/xpjs#bleeding-edge"
+  }
+}
