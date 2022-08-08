@@ -57,8 +57,6 @@ import {
         }
     }
 
-
-
     process.exit(0);
 })().catch(error => {
     console.error("Error:", error);

@@ -21,18 +21,18 @@ config();
     hedera.getProvider()
   );
 
-  const token_uri = "https://meta.polkamon.com/meta?id=10001852306";
+  const token_uri = process.env.HEDERA_URI!;
   const userNftMinter: string = (await ChainFactoryConfigs.TestNet()).hederaParams!.erc721Minter!;
 
   const chosenOne: NftInfo<EthNftInfo> = {
-    collectionIdent: "0x0000000000000000000000000000000002d8b52a",
+    collectionIdent: process.env.HEDERA_COLLECTION!,
     uri: token_uri,
     native: {
       chainId: Chain.HEDERA.toString(),//29,
       contract: userNftMinter,
       contractType: "ERC721",
       owner: process.env.HEDERA_TO_EVM!,
-      tokenId: "10",
+      tokenId: process.env.HEDERA_SEL_ID!,
       uri: token_uri,
     },
   };
@@ -45,7 +45,7 @@ config();
     {
       contract: userNftMinter,
       uris:[chosenOne.uri],
-      name: "Hedera PolkaMon"
+      name: process.env.HEDERA_COLLECTION_NAME!
     } as NftMintArgs
   );
 
@@ -60,7 +60,7 @@ config();
     bsc,
     chosenOne,
     wallet as any,
-    "0x0d7df42014064a163DfDA404253fa9f6883b9187",
+    process.env.EVM_PK!,
     undefined,
     undefined,
     "1000000"
