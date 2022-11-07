@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "transfer":"tsc && node ./build/transfer.js"
+    "transfer":"tsc && node ./build/transfer.js",
+    "unfreeze":"tsc && node ./build/unfreeze.js",
+    "claim":"tsc && node ./build/claim.js"
   },
   "dependencies": {
     "@hashgraph/hethers": "^1.2.2",
