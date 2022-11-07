@@ -1,23 +1,11 @@
-import { Wallet } from "@hashgraph/hethers";
-import { AppConfigs, Chain, ChainFactory, ChainFactoryConfigs } from "xp.network";
 import config from "./config";
 
 (async () => {
-    const factory = ChainFactory(
-        AppConfigs.TestNet(),
-        await ChainFactoryConfigs.TestNet(),
-    );
-    const hedera = await factory.inner(Chain.HEDERA);
-
-    const signer = new Wallet(
-        {
-            privateKey:
-                config.PRIVATE_KEY_SENDER,
-            account: config.ACCOUNT_SENDER,
-            isED25519Type: true,
-        } as any,
-        hedera.getProvider() as any,
-    );
+    const {
+        factory,
+        hedera,
+        signer,
+    } = await config.setup();
 
     const claimables = await factory.listHederaClaimableNFT(
         hedera.XpNft,

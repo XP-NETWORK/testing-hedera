@@ -1,18 +1,16 @@
-import { AppConfigs, Chain, ChainFactoryConfigs, ChainFactory } from 'xp.network';
 import { Wallet } from 'ethers';
 import config from './config';
 
 
 (async () => {
-    const factory = ChainFactory(
-        AppConfigs.TestNet(),
-        await ChainFactoryConfigs.TestNet(),
-    );
-    const bsc = await factory.inner(Chain.BSC);
-    const near = await factory.inner(Chain.HEDERA);
+    const {
+        factory,
+        hedera,
+        bsc
+    } = await config.setup();
 
     const signer = new Wallet(
-        config.BSC_RECEIVER_PK,
+        config.BSC_RECEIVER_PK!,
         bsc.getProvider(),
     );
 
@@ -26,10 +24,10 @@ import config from './config';
 
     const transfer = await factory.transferNft(
         bsc,
-        near,
+        hedera,
         chosenOne,
         signer,
-        config.RECEIVER_ON_HEDERA,
+        config.RECEIVER_ON_HEDERA!,
     );
 
     console.log(`Transfer Result: `, transfer);

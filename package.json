@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "imsk17",
-  "type": "module",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "transfer":"tsc && node ./build/transfer.js"
   },
   "dependencies": {
     "@hashgraph/hethers": "^1.2.2",
