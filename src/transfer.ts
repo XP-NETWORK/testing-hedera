@@ -16,7 +16,6 @@ import config from "./config";
 
     console.log("Found NFTs:", nfts.length);
     
-
     const chosenNFT =
         nfts.find((nft) =>
             nft.native.tokenId === config.HTS_TOKEN_SERIAL_NUMBER 
@@ -24,13 +23,12 @@ import config from "./config";
         )!;
     console.log("Selected:", chosenNFT);
     
-
     const transfer = await factory.transferNft(
         hedera,
         bsc,
         chosenNFT,
         signer as any,
-        config.RECEIVER_ON_BSC!,
+        config.RECEIVER_ADDRESS!,
         new BigNumber(utils.formatHbar("100000000").toString()),
         undefined,
         EthBN.from("15000000"),
