@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
+    "list-nfts":"tsc && node ./build/list.js",
     "transfer":"tsc && node ./build/transfer.js",
     "unfreeze":"tsc && node ./build/unfreeze.js",
     "claim":"tsc && node ./build/claim.js"

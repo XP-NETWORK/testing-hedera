@@ -20,8 +20,8 @@ const {
   HEDERA_EXTRA_FEE
 } = process.env;
 
-const checkIfSet = (variable:string|undefined, name:string) => {
-  if(!variable) throw Error(`${name} in not set in the environment`);
+const checkIfSet = (variable: string | undefined, name: string) => {
+  if (!variable) throw Error(`${name} in not set in the environment`);
 }
 
 checkIfSet(HTS_TOKEN_ADDRESS, "HTS_TOKEN_ADDRESS");
@@ -33,7 +33,7 @@ checkIfSet(BSC_RECEIVER_PK, "BSC_RECEIVER_PK");
 checkIfSet(RECEIVER_ON_HEDERA, "RECEIVER_ON_HEDERA");
 checkIfSet(TOKEN_ID_RECEIVED_ON_BSC, "TOKEN_ID_RECEIVED_ON_BSC");
 checkIfSet(HEDERA_FEE, "HEDERA_FEE");
-checkIfSet(HEDERA_EXTRA_FEE,"HEDERA_EXTRA_FEE");
+checkIfSet(HEDERA_EXTRA_FEE, "HEDERA_EXTRA_FEE");
 
 export const setup = async () => {
 
