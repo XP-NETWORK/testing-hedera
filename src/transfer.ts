@@ -29,9 +29,9 @@ import config from "./config";
         chosenNFT,
         signer as any,
         config.RECEIVER_ADDRESS!,
-        new BigNumber(utils.formatHbar("100000000").toString()),
-        undefined,
-        EthBN.from("15000000"),
+        /*TX fee*/new BigNumber(utils.formatHbar(config.HEDERA_FEE!).toString()),
+        /*Target Contract*/ undefined,
+        /*Extra Fees*/EthBN.from(config.HEDERA_EXTRA_FEE!),
     );
 
     console.log(`Transfer Result: `, transfer);
