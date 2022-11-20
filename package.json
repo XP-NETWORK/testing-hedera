@@ -12,7 +12,7 @@
     "claim":"tsc && node ./build/claim.js"
   },
   "dependencies": {
-    "@hashgraph/hethers": "^1.2.2",
+    "@hashgraph/hethers": "=1.1.2",
     "dotenv": "^16.0.3",
     "typescript": "^4.8.4",
     "xp.network": "git+https://github.com/xp-network/xpjs#bleeding-edge"
