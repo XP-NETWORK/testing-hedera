@@ -55,3 +55,23 @@ BSC_RECEIVER_PK=your-evm-private-key-here
 ```bash
 yarn unfreeze
 ```
+
+## Hedera-libraries related bug fixes:
+
+1. Where: `node_modules/@hethers/abstract-signer/lib/index.js` line 107
+How it was:
+```ts
+    switch (error.status._code) {
+```
+How it should be:
+```ts
+    switch (error?.status?._code) {
+```
+
+Otherwise, it causes this example error:
+```bash
+TypeError: Cannot read properties of undefined (reading '<name of a property here>')
+    at ... lines where it happens
+error Command failed with exit code 1.
+```
+

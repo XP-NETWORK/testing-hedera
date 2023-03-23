@@ -31,4 +31,8 @@ import config from './config';
     );
 
     console.log(`Transfer Result: `, transfer);
-})();
+    process.exit(0)
+})().catch(e => {
+    console.error(e);
+    process.exit(1);
+});

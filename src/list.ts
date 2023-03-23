@@ -18,18 +18,18 @@ export const listHederaNfts = async (
 
 }
 
-// (async () => {
+(async () => {
 
-//     const {signer} = await config.setup();
+    const {signer} = await config.setup();
     
-//     const nfts = await listHederaNfts(
-//         signer.address!
-//     );
+    const nfts = await listHederaNfts(
+        signer.address!
+    );
 
-//     console.log("NFTs:", nfts);
+    console.log("NFTs:", nfts);
 
-//     exit(0)
-// })().catch(e => {
-//     console.error(e);
-//     exit(1)
-// });
+    exit(0)
+})().catch(e => {
+    console.error(e);
+    exit(1)
+});

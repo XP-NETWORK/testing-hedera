@@ -6,13 +6,18 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "list-nfts":"tsc && node ./build/list.js",
-    "transfer":"tsc && node ./build/transfer.js",
-    "unfreeze":"tsc && node ./build/unfreeze.js",
-    "claim":"tsc && node ./build/claim.js"
+    "burn":"tsc && node ./build/burn.js",
+    "setup-check": "tsc && node ./build/config.js",
+    "mint": "tsc && node ./build/mint.js",
+    "list-nfts": "tsc && node ./build/list.js",
+    "transfer": "tsc && node ./build/transfer.js",
+    "unfreeze": "tsc && node ./build/unfreeze.js",
+    "claim": "tsc && node ./build/claim.js",
+    "associate": "tsc && node ./build/associate.js"
   },
   "dependencies": {
     "@hashgraph/hethers": "=1.1.2",
+    "@hashgraph/sdk": "^2.23.0",
     "dotenv": "^16.0.3",
     "typescript": "^4.8.4",
     "xp.network": "git+https://github.com/xp-network/xpjs#bleeding-edge"

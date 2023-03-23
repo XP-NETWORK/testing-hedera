@@ -17,7 +17,8 @@ const {
   RECEIVER_ON_HEDERA,
   TOKEN_ID_RECEIVED_ON_BSC,
   HEDERA_FEE,
-  HEDERA_EXTRA_FEE
+  HEDERA_EXTRA_FEE,
+  HEDERA_COLLECTION
 } = process.env;
 
 const checkIfSet = (variable: string | undefined, name: string) => {
@@ -51,7 +52,8 @@ export const setup = async () => {
       account: ACCOUNT_SENDER!,
       isED25519Type: true,
     } as any,
-    hedera.getProvider() as any,
+    //@ts-ignore
+    hedera.getProvider("testnet"),
   );
 
   return {
@@ -74,5 +76,26 @@ export default {
   setup,
   Chain,
   HEDERA_FEE,
-  HEDERA_EXTRA_FEE
+  HEDERA_EXTRA_FEE,
+  HEDERA_COLLECTION
 };
+
+// (async ( ) => {
+
+//   const {
+//     factory,
+//     hedera,
+//     bsc,
+//     signer
+//   } = await setup();
+
+//   console.log("Factory", factory);
+//   console.log("Hedera", hedera);
+//   console.log("BSC", bsc);
+//   console.log("Signer:", signer);
+
+//   process.exit(0);
+// })().catch(e => {
+//   console.error(e);
+//   process.exit(1);
+// })
